@@ -1,0 +1,17 @@
+mat-card {
+  width: 80%;
+  margin: auto;
+}
+mat-form-field,
+input {
+  width: 60%;
+  margin: auto;
+  align-items: center;
+}
+.actions {
+  text-align: center;
+}
+mat-icon:hover {
+  color: brown;
+  cursor: pointer;
+}

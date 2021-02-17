@@ -1,0 +1,26 @@
+<h1>Welcome to Angular {{title}}</h1>
+<mat-card>
+<mat-form-field>
+<!-- <textarea matInput rows="10" #contentvalue> </textarea> -->
+<textarea matInput rows="10" [(ngModel)]='userValue'> </textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+  <button mat-raised-button color="primary" (click) = "addMessage()">Send Message</button>
+</mat-form-field>
+</mat-card>
+<p>{{msg}}</p>
+<br>
+<!-- <img [src] = imgUrl> -->
+
+<p *ngFor = "let names of usernames">
+  {{names}}
+</p>
+<table *ngIf="userdata.length>0">
+  <tr *ngFor="let employee of userdata">
+    <td>{{employee.name}}</td>
+    <td>{{employee.age}}</td>
+    <td>{{employee.desgination}}</td>
+  </tr>
+</table>
+<p *ngIf="userdata.length<=0"> No Data Found! </p>

@@ -1,0 +1,19 @@
+<div class = "main">
+
+<mat-card>
+  <mat-form-field>
+    <input matInput type='text' placeholder="Name" [(ngModel)]="userName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput rows='6' placeholder="Message" [(ngModel)]="userMessage"></textarea>
+  </mat-form-field>
+  <button
+  mat-raised-button
+  color="primary"
+  (click)="onAddMessage()">
+  Add Message
+</button>
+</mat-card>
+
+</div>

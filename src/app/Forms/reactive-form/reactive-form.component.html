@@ -1,0 +1,94 @@
+<mat-card>
+
+  <h1> Reactive Form</h1>
+
+  <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <mat-select
+      placeholder="Title"
+      formControlName="title"
+      [ngClass]="{'is-invalid': submitted && f.title.errors}">
+        <mat-option value=""></mat-option>
+        <mat-option value="Ms">Ms</mat-option>
+        <mat-option value="Mrs">Mrs</mat-option>
+        <mat-option value="Mr">Mr</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.title.errors">
+      <mat-error *ngIf = "f.title.errors?.required">
+        Title is Required
+      </mat-error>
+    </mat-error>
+
+    <mat-form-field>
+      <input type="text" name="username" placeholder="User Name" matInput formControlName="username"
+      [ngClass]="{'is-inavlid':submitted && f.username.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.username.errors">
+      <mat-error *ngIf="f.username.errors?.required">
+        Name is Required
+      </mat-error>
+    </mat-error>
+    <br>
+
+    <mat-form-field>
+      <input type="email" name="useremail" placeholder="User Email" matInput formControlName="useremail"
+      [ngClass]="{'is-inavlid':submitted && f.useremail.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.useremail.errors">
+      <mat-error *ngIf="f.useremail.errors?.required">
+        Email is Required
+      </mat-error>
+      <mat-error *ngIf="f.useremail.errors?.email">
+        Proper Email Format is Required
+      </mat-error>
+    </mat-error>
+    <br>
+
+    <mat-form-field>
+      <input type="password" name="userpassword" placeholder="User Password" matInput formControlName="userpassword"
+      [ngClass]="{'is-inavlid':submitted && f.userpassword.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.userpassword.errors">
+      <mat-error *ngIf="f.userpassword.errors?.required">
+        Password is Required
+      </mat-error>
+      <mat-error *ngIf="f.userpassword.errors?.minlength">
+        Password should be greater than 6 characters.
+      </mat-error>
+    </mat-error>
+    <br>
+
+    <mat-form-field>
+      <input type="password" name="cuserpassword" placeholder="Confirm User Password" matInput formControlName="cuserpassword"
+      [ngClass]="{'is-inavlid':submitted && f.cuserpassword.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.cuserpassword.errors">
+      <mat-error *ngIf="f.cuserpassword.errors?.required">
+        Re-Enter your Password
+      </mat-error>
+      <mat-error *ngIf="f.cuserpassword.hasError('mustMatch')">
+        Password Must Match
+      </mat-error>
+    </mat-error>
+    <br>
+
+    <mat-checkbox formControlName="terms"
+    [ngClass]="{'is-inavlid':submitted && f.terms.errors}">
+      Accept Terms and Conditions
+    </mat-checkbox>
+
+    <mat-error *ngIf="submitted && f.terms.errors">
+      <mat-error *ngIf="f.terms.hasError('required')">
+        Please Accept Terms and Conditions.
+      </mat-error>
+    </mat-error>
+    <br>
+
+    <button class="submit" mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button type="reset" color="warn">Reset</button>
+
+
+  </form>
+</mat-card>

@@ -1,0 +1,12 @@
+<div class="list">
+<mat-accordion multi="true" *ngIf="userDetails.length>0">
+  <mat-expansion-panel *ngFor="let user of userDetails">
+  <mat-expansion-panel-header>
+    {{user.name}}
+  </mat-expansion-panel-header>
+  <p>{{user.message}}</p>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<p class="mat-h4 msg" *ngIf="userDetails<=0">No Messages Found!</p>
+</div>
